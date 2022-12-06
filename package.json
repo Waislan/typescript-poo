@@ -1,0 +1,20 @@
+{
+  "name": "typescript-poo",
+  "version": "1.0.0",
+  "description": "Este repositório foi criado para o estudo de Programação Orientada a Objetos com TypeScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Waislan/typescript-poo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Waislan/typescript-poo/issues"
+  },
+  "homepage": "https://github.com/Waislan/typescript-poo#readme"
+}
