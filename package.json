@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/Waislan/typescript-poo/issues"
   },
-  "homepage": "https://github.com/Waislan/typescript-poo#readme"
+  "homepage": "https://github.com/Waislan/typescript-poo#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.11",
+    "tslib": "^2.4.1"
+  },
+  "dependencies": {}
 }
