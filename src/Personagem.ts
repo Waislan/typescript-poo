@@ -1,4 +1,4 @@
-class Personagem {
+export default class Personagem {
   constructor(
     public name: string,
     public energia: number,
@@ -7,7 +7,3 @@ class Personagem {
     public defesa: number
   ) {}
 }
-
-let tonyStark = new Personagem("Tony Stark", 90, 85, 80, 85);
-
-console.log("personagem: ", tonyStark);
