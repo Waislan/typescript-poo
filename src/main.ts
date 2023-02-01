@@ -1,3 +1,4 @@
+import { exit } from "process";
 import prompt from "prompt-sync";
 import Personagem from "./Personagem";
 
@@ -20,94 +21,31 @@ while (option != 6) {
 
     switch (option) {
         case 1: {
-            person.ataque += Math.random() * 7;
-            person.energia -= Math.random() * 10;
-
-            if (person.energia < 0) {
-                console.log("Game over!");
-            } else {
-                if (person.ataque > 100) {
-                    person.ataque = 100;
-                }
-                console.log("\n");
-                console.log("Name: ", person.name);
-                console.log("Ataque: ", person.ataque.toFixed(1));
-                console.log("Defesa: ", person.defesa.toFixed(1));
-                console.log("Energia: ", person.energia.toFixed(1));
-                console.log("Vida: ", person.vida.toFixed(1));
-                console.log("\n");
-            }
-
+            person.trainAttack();
+            person.showStatus();
             break;
         }
         case 2: {
-            person.defesa += Math.random() * 5;
-            person.energia -= Math.random() * 10;
-
-            if (person.energia < 0) {
-                console.log("Game over!");
-            } else {
-                if (person.defesa > 100) {
-                    person.defesa = 100;
-                }
-                console.log("\n");
-                console.log("Name: ", person.name);
-                console.log("Ataque: ", person.ataque.toFixed(1));
-                console.log("Defesa: ", person.defesa.toFixed(1));
-                console.log("Energia: ", person.energia.toFixed(1));
-                console.log("Vida: ", person.vida.toFixed(1));
-                console.log("\n");
-            }
-
+            person.trainDefense();
+            person.showStatus();
             break;
         }
         case 3: {
-            person.energia += Math.random() * 10;
-
-            if (person.energia > 100) {
-                person.energia = 100;
-            } else {
-                console.log("\n");
-                console.log("Name: ", person.name);
-                console.log("Ataque: ", person.ataque.toFixed(1));
-                console.log("Defesa: ", person.defesa.toFixed(1));
-                console.log("Energia: ", person.energia.toFixed(1));
-                console.log("Vida: ", person.vida.toFixed(1));
-                console.log("\n");
-            }
-
+            person.rest();
+            person.showStatus();
             break;
         }
         case 4: {
-            person.energia -= Math.random() * 100;
-
-            if (person.energia < 0) {
-                console.log("Game over!");
-            } else {
-                console.log("\n");
-                console.log("Name: ", person.name);
-                console.log("Ataque: ", person.ataque.toFixed(1));
-                console.log("Defesa: ", person.defesa.toFixed(1));
-                console.log("Energia: ", person.energia.toFixed(1));
-                console.log("Vida: ", person.vida.toFixed(1));
-                console.log("\n");
-            }
-
+            person.goIntoBattle();
+            person.showStatus();
             break;
         }
         case 5: {
-            console.log("\n");
-            console.log("Name: ", person.name);
-            console.log("Ataque: ", person.ataque.toFixed(1));
-            console.log("Defesa: ", person.defesa.toFixed(1));
-            console.log("Energia: ", person.energia.toFixed(1));
-            console.log("Vida: ", person.vida.toFixed(1));
-            console.log("\n");
-
+            person.showStatus();
             break;
         }
         default: {
-            break;
+            exit();
         }
     }
 }
