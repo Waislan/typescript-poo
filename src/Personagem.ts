@@ -7,14 +7,12 @@ export default class thisagem {
     public defesa: number
   ) { }
 
-  showStatus(): void {
-    console.log("\n");
-    console.log("Name: ", this.name);
-    console.log("Ataque: ", this.ataque.toFixed(1));
-    console.log("Defesa: ", this.defesa.toFixed(1));
-    console.log("Energia: ", this.energia.toFixed(1));
-    console.log("Vida: ", this.vida.toFixed(1));
-    console.log("\n");
+  showStatus(): string {
+    return "\nName: " + this.name +
+    "\nAtaque: " + this.ataque.toFixed(1) +
+    "\nDefesa: " + this.defesa.toFixed(1) +
+    "\nEnergia: " + this.energia.toFixed(1) +
+    "\nVida: " + this.vida.toFixed(1) + "\n";
   }
 
   trainAttack(): void {
@@ -25,7 +23,6 @@ export default class thisagem {
       if (this.ataque > 100) {
         this.ataque = 100;
       }
-      this.showStatus();
     }
   }
 
@@ -37,33 +34,26 @@ export default class thisagem {
       if (this.defesa > 100) {
         this.defesa = 100;
       }
-      this.showStatus();
     }
   }
 
-  rest(): void {
-    this.energia += Math.random() * 10;
+  rest(time: number): number {
+    let rest: number = time * Math.random() * 10;
+    this.energia += rest;
 
     if (this.energia > 100) {
       this.energia = 100;
-    } else {
-      this.showStatus();
     }
+    return rest;
   }
 
-  goIntoBattle(): void {
-    this.energia -= Math.random() * 100;
-
-    if (this.isAlive()) {
-      this.showStatus();
-    }
+  goIntoBattle(): number {
+    let wear: number = Math.random() * 100;
+    this.energia -= wear;
+    return wear;
   }
 
   isAlive(): boolean {
-    if (this.energia < 0) {
-      console.log("Game over!");
-      return false;
-    }
-    return true;
+    return this.energia > 0 && this.vida > 0;
   }
 }
