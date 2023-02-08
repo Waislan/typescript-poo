@@ -1,13 +1,13 @@
 export default class thisagem {
   constructor(
-    public name: string,
-    public energia: number,
-    public vida: number,
-    public ataque: number,
-    public defesa: number
+    private name: string,
+    private energia: number,
+    private vida: number,
+    private ataque: number,
+    private defesa: number
   ) { }
 
-  showStatus(): string {
+  public showStatus(): string {
     return "\nName: " + this.name +
     "\nAtaque: " + this.ataque.toFixed(1) +
     "\nDefesa: " + this.defesa.toFixed(1) +
@@ -15,9 +15,9 @@ export default class thisagem {
     "\nVida: " + this.vida.toFixed(1) + "\n";
   }
 
-  trainAttack(): void {
-    this.ataque += Math.random() * 7;
-    this.energia -= Math.random() * 10;
+  public trainAttack(): void {
+    this.ataque += this.randomize(7);
+    this.energia -= this.randomize(10);
 
     if (this.isAlive()) {
       if (this.ataque > 100) {
@@ -26,9 +26,9 @@ export default class thisagem {
     }
   }
 
-  trainDefense(): void {
-    this.defesa += Math.random() * 5;
-    this.energia -= Math.random() * 10;
+  public trainDefense(): void {
+    this.defesa += this.randomize(5);
+    this.energia -= this.randomize(10);
 
     if (this.isAlive()) {
       if (this.defesa > 100) {
@@ -37,8 +37,8 @@ export default class thisagem {
     }
   }
 
-  rest(time: number): number {
-    let rest: number = time * Math.random() * 10;
+  public rest(time: number): number {
+    let rest: number = time * this.randomize(10);
     this.energia += rest;
 
     if (this.energia > 100) {
@@ -47,13 +47,17 @@ export default class thisagem {
     return rest;
   }
 
-  goIntoBattle(): number {
-    let wear: number = Math.random() * 100;
+  public goIntoBattle(): number {
+    let wear: number = this.randomize(100);
     this.energia -= wear;
     return wear;
   }
 
-  isAlive(): boolean {
+  public isAlive(): boolean {
     return this.energia > 0 && this.vida > 0;
+  }
+
+  private randomize(factor: number): number {
+    return Math.random() * factor;
   }
 }
